@@ -1,0 +1,16 @@
+<h1>Metric values for <%= @metric.name %></h1>
+
+<ul>
+    <% @metric_values.each do |v| %>
+        <li>
+            <%= link_to "#{v.user.first_name} #{v.user.last_name}: #{v.value || 0}", 
+                        "#{metric_value_path(
+                            :id => v.id, 
+                            :href => v.href, 
+                            :metric_id => @metric.id, 
+                            :metric_name => @metric.name,
+                            :user => "#{v.user.first_name} #{v.user.last_name}"
+                        )}"%>
+        </li>
+    <% end %>
+</ul>

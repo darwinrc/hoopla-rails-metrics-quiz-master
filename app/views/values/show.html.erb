@@ -1,0 +1,17 @@
+Updating <strong><%= @metric_name %></strong> for <strong><%= @user %></strong>
+
+<%= form_for :value, 
+    url: metric_value_path(
+        :id => @id, 
+        :metric_id => @metric_id,
+        :href => @href
+    ),
+    method: :put do |f|%>
+    <p>
+      Value: <%= f.text_field :value, size: 6 %>
+       <%= f.hidden_field :href %>
+    </p>
+    <p>
+        <%= f.submit() %>
+    </p>
+<% end %>
